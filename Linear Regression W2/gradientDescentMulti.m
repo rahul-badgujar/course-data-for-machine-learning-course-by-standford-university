@@ -4,9 +4,9 @@ function [theta, J_history] = gradientDescentMulti(X, y, theta, alpha, num_iters
 %   taking num_iters gradient steps with learning rate alpha
 
 % Initialize some useful values
-m = length(y); % number of training examples
+m = length(y); % number of training examples;
 J_history = zeros(num_iters, 1);
-
+newX=[X];
 for iter = 1:num_iters
 
     % ====================== YOUR CODE HERE ======================
@@ -18,7 +18,10 @@ for iter = 1:num_iters
     %
 
 
-
+    h=newX*theta;
+    stdError=h-y;
+    delta=(stdError'*newX)';
+    theta=theta-(alpha/m)*delta;
 
 
 
