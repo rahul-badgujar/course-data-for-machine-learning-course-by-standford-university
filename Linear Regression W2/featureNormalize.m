@@ -26,6 +26,16 @@ sigma = zeros(1, size(X, 2));
 % Hint: You might find the 'mean' and 'std' functions useful.
 %       
 
+m= size(X,2);
+
+for i=1:m
+    currMu=mean(X(:,i));
+    X_norm(:,i)=X_norm(:,i)-currMu;
+    mu(i)=currMu;
+    currStd=std(X_norm(:,i));
+    X_norm(:,i)=X_norm(:,i)./currStd;
+    sigma(i)=currStd;
+end
 
 
 
